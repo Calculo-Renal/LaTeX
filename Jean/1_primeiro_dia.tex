@@ -1,0 +1,152 @@
+\documentclass{article}
+
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+
+\setlength{\parskip}{0.6em}
+\lstset{
+    basicstyle=\ttfamily,
+    xleftmargin=2em
+}
+
+\author{Jean Carlo}
+\title{Primeiro dia estudando LaTeX}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{O que é o LaTeX?}
+
+O \LaTeX{} é uma extensão do \TeX{} que permite que você digite de forma mais rápida e concisa operações presentes no \TeX{} através do uso de \textbf{macros}.
+
+Além disso, o \LaTeX{} possui um vasto conjunto de operações matemáticas já codificadas em macros, facilitando a digitação de artigos científicos e livros de caráter matemático, por exemplo. 
+
+\section{Como digitar em LaTeX}
+
+\subsection{A classe do documento}
+
+Em \LaTeX{} sempre iniciamos o documento declarando a sua \textbf{classe}, ou seja, o seu caráter. Isso possibilita a padronização de layouts e dá uma pista do objetivo do arquivo. Sendo assim, iniciamos com
+
+\begin{lstlisting}
+    \documentclass{<classe>}
+\end{lstlisting}
+
+Onde \texttt{<classe>} é a classe a qual o documento pertence. A mais comum delas é \texttt{article}, que define um artigo, normalmente curto (assim como esse!!!).
+
+\subsection{Perambulando por pacotes? Use o preâmbulo!}
+
+Agora vem onde definimos as coisas mais importantes: pacotes, macros que definem informação de cabeçalho, configurações acerca de tipografia\ldots{} Toda essa seção que contém essas coisas e fica entre o comando 
+
+\begin{lstlisting}
+    \documentclass{<classe>}
+\end{lstlisting}
+
+e do comando 
+
+\begin{lstlisting}
+    \begin{document}
+\end{lstlisting}
+
+se chama \textbf{preâmbulo}.
+
+\subsubsection{Pacotes}
+
+\textbf{Pacotes} são extensões do \TeX{} que são proporcionadas pelo \LaTeX{}. Eles são definidos através do comando
+
+\begin{lstlisting}
+    \usepackage{<nome_do_pacote>}
+\end{lstlisting}
+
+Onde \texttt{\textless{}nome\_do\_pacote\textgreater{}} se refere literalmente ao identificador do pacote.
+
+Um pacote que usei inclusive para digitar esse documento é o \texttt{listings}, ele permite usar o comando \texttt{\textbackslash{}begin} com o parâmento obrigatório \texttt{\{lstlisting\}} para fazer blocos de código como esse:
+
+\begin{lstlisting}
+    Olha só, estou muito organizado!
+\end{lstlisting}
+
+Outros pacotes que usei também foram:
+
+\begin{description}
+    \item[babel] Usei o comando \texttt{\textbackslash{}usepackage[brazil]\{babel\}} para deixar o \LaTeX{} em português em relação aos comando e macros automáticas. 
+    \item[fontenc] Usei o comando \texttt{\textbackslash{}usepackage[T1]\{fontenc\}} para definir a codificação de fonte para T1.
+    \item[inputenc] Usei o comando \texttt{\textbackslash{}usepackage[utf8]\{inputenc\}} para definir a codificação do input para UTF-8.
+\end{description}
+
+\subsection{Outras macros}
+
+Como não sei bem como funcionam e apenas usei por conveniência, irei apenas dar uma breve lista de algumas macros que usei no preâmbulo. São elas:
+
+\begin{description}
+    \item[setlength] O comando \texttt{\textbackslash{}setlength\{\emph{size}\}} permite dar tamanho para macros que são espaços como \texttt{\textbackslash{}parskip} ao colocar um valor de tamanho em \texttt{size}.
+    \item[author] O comando \texttt{\textbackslash{}author\{\emph{name}\}} permite definir um autor para o documento ao colocar um texto em \texttt{name}.
+    \item[title] \texttt{\textbackslash{}title\{\emph{name}\}} permite definir um título para o documento ao colocar um texto em \texttt{name}.
+\end{description}
+
+\section{Alguns dos erros que encontrei...}
+
+\subsection{Avisos (Warnings)}
+
+\subsubsection{No pages of output.}
+
+Aqui está o aviso completo:
+
+\begin{lstlisting}
+    No pages of output.
+\end{lstlisting}
+
+Concluí que ele é gerado quando o \LaTeX{} compila corretamente. Todavia, nada é gerado.
+
+\subsubsection{Overfull \textbackslash hbox (\emph{size} too wide)
+}
+
+Aqui está o exemplo de um aviso completo:
+
+\begin{lstlisting}
+    Overfull \hbox (78.81297pt too wide)
+\end{lstlisting}
+
+Concluí que ele é gerado quando o \LaTeX{} gera um conteúdo que não pôde ser quebrado corretamente horizontalmente, quebrando a \texttt{hbox}.
+
+\subsection{Erros (Errors)}
+
+\subsubsection{Failure to make 'teste.pdf'.}
+
+Aqui está o erro completo:
+
+\begin{lstlisting}
+    Failure to make 'teste.pdf'
+    pdflatex: failed to create output file
+\end{lstlisting}
+
+Concluí que ele é gerado principalmente quando há erros na compilação. Todavia, também pode vir da própria instalação, configuração ou implementação do \texttt{pdflatex}.
+
+\subsubsection{Missing \$ inserted.}
+
+Aqui está o erro completo:
+
+\begin{lstlisting}
+    Missing $ inserted.
+    <inserted text> LaTeX
+\end{lstlisting}
+
+Concluí que ele ocorre quando o \LaTeX{} entra em modo matemático acidentalmente ou senão quando está faltando o \$ para finalizar o modo matemático.
+
+\subsubsection{Extra \}, or forgotten \$.}
+
+Aqui está o erro completo:
+
+\begin{lstlisting}
+    Extra }, or forgotten $.
+    <recently read> \egroup LaTeX
+\end{lstlisting}
+
+No meu caso, era um efeito cascata devido ao erro anterior. O meu \LaTeX{} entrou em modo matemático devido à falta de chaves, que fazia uma má compilação ocorrer.
+
+\end{document}
