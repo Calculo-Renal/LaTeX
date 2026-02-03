@@ -74,9 +74,11 @@ Um pacote que usei inclusive para digitar esse documento é o \texttt{listings},
 Outros pacotes que usei também foram:
 
 \begin{description}
-    \item[babel] Usei o comando \texttt{\textbackslash{}usepackage[brazil]\{babel\}} para deixar o \LaTeX{} em português em relação aos comando e macros automáticas. 
-    \item[fontenc] Usei o comando \texttt{\textbackslash{}usepackage[T1]\{fontenc\}} para definir a codificação de fonte para T1.
-    \item[inputenc] Usei o comando \texttt{\textbackslash{}usepackage[utf8]\{inputenc\}} para definir a codificação do input para UTF-8.
+    \item[babel] Define o idioma.
+    \item[fontenc] Configura a codificação de fontes.
+    \item[inputenc] Configura a codificação de caracteres.
+    \item[listings] Para blocos de código.
+    \item[hyperref] Para sumário e referências clicáveis.
 \end{description}
 
 \subsection{Outras macros}
@@ -84,9 +86,9 @@ Outros pacotes que usei também foram:
 Como não sei bem como funcionam e apenas usei por conveniência, irei apenas dar uma breve lista de algumas macros que usei no preâmbulo. São elas:
 
 \begin{description}
-    \item[setlength] O comando \texttt{\textbackslash{}setlength\{\emph{size}\}} permite dar tamanho para macros que são espaços como \texttt{\textbackslash{}parskip} ao colocar um valor de tamanho em \texttt{size}.
-    \item[author] O comando \texttt{\textbackslash{}author\{\emph{name}\}} permite definir um autor para o documento ao colocar um texto em \texttt{name}.
-    \item[title] \texttt{\textbackslash{}title\{\emph{name}\}} permite definir um título para o documento ao colocar um texto em \texttt{name}.
+    \item[setlength] Ajusta medidas (ex: espaçamento entre parágrafos com \texttt{\textbackslash setlength\{\textbackslash parskip\}\{0.6em\}}).
+    \item[author] Define o autor (\texttt{\textbackslash author\{...\}}).
+    \item[title] Define o título (\texttt{\textbackslash title\{...\}}).
 \end{description}
 
 \section{Alguns dos erros que encontrei...}
